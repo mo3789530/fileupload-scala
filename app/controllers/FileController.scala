@@ -25,7 +25,7 @@ class FileController @Inject()(val controllerComponents: ControllerComponents,
         try {
           val wsResponse = ws.url("http://192.168.11.11:9090/test/hoge.txt")
             .addHttpHeaders("Date" -> "Sat, 26 Feb 2022 22:21:16 +0900")
-            .addHttpHeaders("Authorization" -> "AWS minio:HEApTp6soCYwIsngNH6DqOk4Fz8=")
+            .addHttpHeaders("Authorization" -> "AWS ")
             .addHttpHeaders("Content-Type" -> "application/octet-stream")
             .addHttpHeaders("Content-Length" -> file.fileSize.toString)
             .addHttpHeaders("HOST"-> "192.168.11.11:9090")
@@ -54,7 +54,7 @@ class FileController @Inject()(val controllerComponents: ControllerComponents,
   def download() = Action.async {
     ws.url("http://192.168.11.11:9090/test/testfile.txt").withMethod("GET")
       .addHttpHeaders("Date" -> "Sun, 27 Feb 2022 12:17:36 +0900")
-      .addHttpHeaders("Authorization" -> " AWS minio:5KSlRDcQTx0Empqgl35UphOn1UA=")
+      .addHttpHeaders("Authorization" -> " AWS ")
       .addHttpHeaders("Content-Type" -> "application/zstd")
       .addHttpHeaders("HOST" -> "192.168.11.11:9090")
       .stream()
